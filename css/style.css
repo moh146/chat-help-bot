@@ -1,0 +1,174 @@
+/* Reset & Base */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #0f0f0f;
+}
+
+/* Smooth RGB (hue) cycling over entire UI */
+html {
+  /* يدور التدرج اللوني من 0° إلى 360° بشكل خطي */
+  animation: hueCycle 30s linear infinite;
+}
+@keyframes hueCycle {
+  from { filter: hue-rotate(0deg); }
+  to   { filter: hue-rotate(360deg); }
+}
+
+/* Layout */
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+}
+
+header {
+  background: #ffe600;
+  color: #ffffff;
+  padding: 1rem;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Chat Bubbles */
+#chat {
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background: url('https://cdn.pixabay.com/animation/2023/03/31/01/32/01-32-38-664_512.gif') no-repeat center center;
+  background-size: cover;
+}
+
+
+.bubble {
+  max-width: 60%;
+  margin: 0.5rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  line-height: 1.4;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.user {
+  align-self: flex-end;
+  background: #fff7e5;
+  color: #000000;
+  margin-left: auto;
+}
+
+.ai {
+  align-self: flex-start;
+  background: #ffe5e5;
+  color: #000000;
+  margin-right: auto;
+}
+
+/* Code Blocks */
+pre.hljs {
+  background: #333333;
+  color: #eeeeee;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  overflow: auto;
+}
+
+/* Controls */
+#controls {
+  display: flex;
+  padding: 1rem;
+  background: #ffe600;
+  border-top: 1px solid #ffe600;
+  gap: 0.5rem;
+}
+
+#entry {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  font-size: 1rem;
+  resize: none;
+  white-space: pre-wrap;
+}
+
+button, select {
+  background: #1e1e1e;
+  color: #ffffff;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+select {
+  background: #2e2e2e;
+}
+
+/* Key Modal */
+#keyModal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+#keyModal .modal-content {
+  background: #3a3a3a;
+  padding: 3rem;
+  border-radius: 1rem;
+  text-align: left;
+  width: 320px;
+  color: #eeeeee;
+  position: relative;
+}
+
+#keyModal h2 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+}
+
+#keyModal input {
+  width: 94%;
+  padding: 0.5rem;
+  margin-bottom: 0rem;
+  border-radius: 0.5rem;
+  border: 1px solid #363636;
+  font-size: 1rem;
+  background: #000000;
+  color: #ffffff;
+}
+
+#keyModal .error {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: none;
+}
+
+#keyModal .buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+#keyModal .buttons button {
+  flex: 1;
+  background: #000000;
+  color: #ffffff;
+}

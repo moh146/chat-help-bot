@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HelperAi - By ZaxaR</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Highlight.js & Markdown-it Styles -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.6/markdown-it.min.css"
+  />
+</head>
+<body>
+
+  <!-- Key Entry Modal -->
+  <div id="keyModal">
+    <div class="modal-content">
+      <h2>Enter Key</h2>
+      <input type="text" id="keyInput" placeholder="Your Key..." />
+      <div class="error" id="keyError">Invalid Key. Please try again.</div>
+      <div class="buttons">
+        <button id="loginKeyBtn">Login</button>
+        <button id="registerBtn">Register</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+    <header>
+      <label>
+        Model:
+        <select id="model">
+          <option value="openai/gpt-3.5-turbo">Chat Help</option>
+          <option value="deepseek/deepseek-chat-v3-0324:free">Chat & Programming</option>
+          <option value="deepseek/deepseek-prover-v2:free">Programming</option>
+        </select>
+      </label>
+      <button id="logoutBtn" style="margin-left:auto; display:none;">Logout</button>
+    </header>
+
+    <div id="chat"></div>
+
+    <div id="controls">
+      <textarea id="entry" placeholder="Type your message..." rows="3"></textarea>
+      <button id="send" disabled>Send ▶️</button>
+      <button id="stop" disabled>Stop ⏹️</button>
+    </div>
+  </div>
+
+  <!-- Core Libraries via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.6/markdown-it.min.js"></script>
+  <script
+    defer
+    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
+  ></script>
+
+  <!-- Your App Logic -->
+  <script src="js/main.js"></script>
+
+  <!-- Final Inline Config -->
+  <script>
+    // Highlight.js setup
+    hljs.configure({ languages: ['lua'] });
+    // Auto-zoom based on viewport height
+    document.body.style.zoom = 0.2 + window.innerHeight / 680 * 0.8;
+  </script>
+</body>
+</html>
