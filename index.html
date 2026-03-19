@@ -1,78 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chat Ai - By ZaxaR</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Highlight.js & Markdown-it Styles -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.6/markdown-it.min.css"
-  />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>ZaxaR AI PRO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
+    <div class="container">
+        <header>
+            <span>ZAXAR AI PRO</span>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <select id="modelSelect">
+                    <option value="gpt-4o-mini" selected>GPT-4o Mini</option>
+                    <option value="gpt-4o">GPT-4o</option>
+                    <option value="gpt-4.1">GPT-4.1</option>
+                    <option value="gpt-4.1-mini">GPT-4.1 Mini</option>
+                    <option value="gpt-4.1-nano">GPT-4.1 Nano</option>
+                </select>
+                <button id="clearBtn" style="background:transparent; color:#000; border:none; cursor:pointer; font-size:1.2rem;">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+        </header>
 
-  <!-- Key Entry Modal -->
-  <div id="keyModal">
-    <div class="modal-content">
-      <h2>Enter Key</h2>
-      <input type="text" id="keyInput" placeholder="Your Key..." />
-      <div class="error" id="keyError">Invalid Key. Please try again.</div>
-      <div class="buttons">
-        <button id="loginKeyBtn">Login</button>
-        <button id="registerBtn">Register</button>
-      </div>
+        <div id="chat"></div>
+
+        <div id="controls">
+            <div id="imagePreviewContainer">
+                <div id="removeImageBtn">&times;</div>
+            </div>
+            <input type="file" id="imageInput" style="display:none;" accept="image/*">
+            <button id="uploadBtn" class="btn-icon"><i class="fas fa-camera"></i></button>
+            <textarea id="entry" placeholder="Write something..." rows="1"></textarea>
+            <button id="mainBtn" class="btn-icon"><i class="fas fa-paper-plane"></i></button>
+        </div>
     </div>
-  </div>
 
-  <!-- Main Container -->
-  <div class="container">
-    <header>
-      <label>
-        Model:
-        <select id="model">
-          <option value="openai/gpt-3.5-turbo">Chat Help</option>
-          <option value="deepseek/deepseek-chat-v3-0324:free">Chat Help & Programming</option>
-          <option value="deepseek/deepseek-prover-v2:free">Programming</option>
-        </select>
-      </label>
-      <button id="logoutBtn" style="margin-left:auto; display:none;">Logout</button>
-    </header>
-
-    <div id="chat"></div>
-
-    <div id="controls">
-      <textarea id="entry" placeholder="Type your message..." rows="3"></textarea>
-      <button id="send" disabled>Send ▶️</button>
-      <button id="stop" disabled>Stop ⏹️</button>
-    </div>
-  </div>
-
-  <!-- Core Libraries via CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.6/markdown-it.min.js"></script>
-  <script
-    defer
-    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
-  ></script>
-
-  <!-- Your App Logic -->
-  <script src="js/main.js"></script>
-
-  <!-- Final Inline Config -->
-  <script>
-    // Highlight.js setup
-    hljs.configure({ languages: ['lua'] });
-    // Auto-zoom based on viewport height
-    document.body.style.zoom = 0.2 + window.innerHeight / 680 * 0.8;
-  </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
